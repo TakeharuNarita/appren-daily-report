@@ -1,0 +1,10 @@
+# from template
+tempCodeRunnerFile.*
+*.log
+/bin/
+/.settings/
+/.metadata/
+/.DS_Store
+/.classpath
+/.rubocop.yml
+# end template
