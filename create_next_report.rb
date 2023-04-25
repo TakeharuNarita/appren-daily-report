@@ -1,3 +1,4 @@
+# rubocop:disable all
 def relative_ls = Dir[File.dirname(__FILE__) + "/*"]
 
 class IntFilesLatest
@@ -131,3 +132,4 @@ puts "File.write(tmpl) -> \"#{f.path}\""
 f.write(tmpl)
 f.close
 
+# rubocop:enable all
