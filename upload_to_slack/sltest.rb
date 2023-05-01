@@ -1,11 +1,15 @@
-require 'selenium-webdriver'
- 
-# Firefoxを起動
-driver = Selenium::WebDriver.for(:chrome)
-# 指定したURLに遷移
-driver.get('https://www.google.co.jp/')
+# frozen_string_literal: true
 
-loop do
-  # 1秒待機
-  sleep 10
+require 'selenium-webdriver'
+# @param none
+class Sltest
+  def main
+    driver = Selenium::WebDriver.for(:chrome)
+    driver.get('https://www.google.co.jp/')
+    loop do
+      sleep 10
+    end
+  end
 end
+
+Sltest.new.main
