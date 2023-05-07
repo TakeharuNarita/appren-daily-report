@@ -23,7 +23,7 @@ end
 latest_file = IntFilesLatest.new(relative_ls,"md")
 
 def pic_tomorrows str
-  regexp = /(\|TODO\|備考\|)([^!]+)(<!-- end -->)/
+  regexp = /()([^!]+)(<!-- end -->)/
   str =~ regexp
   Regexp.last_match(2)
 end
@@ -32,7 +32,7 @@ f = File.open(latest_file.pash, "r")
 tomotodo = pic_tomorrows f.read
 f.close
 
-tomotodo.gsub!(/\|[^\|]{2,}\|$/, '||')
+# tomotodo.gsub!(/\|[^\|]{2,}\|$/, '||')
 
 def yyMMdd_split(dateint) = {
   yy:("%02d" % (dateint/10000%100)),
@@ -50,119 +50,93 @@ df = yyMMdd_split(latest_file.name_int+1)
 # EOT (End of Textの略)
 tmpl = <<"EOS"
 # 日報 #{df[:MM]}/#{df[:dd]}
-[^1](#remarks)[^2](#remarks)
 
 
-## 1. TODO
+<ol>
+
+## <li>為さねばならぬ事</li>
+
 *本日の目標（TODO目標/できるようになりたいこと）*
-
-|前日引き継ぎTODO|進捗|#{tomotodo}
-|当日追加TODO|進捗|
-|-|-|
-|                                ||
-|                                ||
-|                                ||
-|                                ||
-|                                ||
-|                                ||
-|                                ||
-|                                ||
-
-
+#{tomotodo}
 <br>
 
-## 2. TODOまとめ
+## <li>為した事</li>
+
 *目標振り返り（TODO進捗/できるようになりたいこと振り返り）*
 
   - 
   - 
   - 
+  - 
 
 <br>
 
 
-## 3. 情報技術に関する事を行った時間(20時〆)
+## <li>情報技術に関する事を行った時間(20時〆)</li>
 
 *学習時間*
 
-  - h
+  - 10h
     - 昨日レポート後 h
-    - 起床後 h
-    - コーヒーナップ h
-
-
-<br>
-
-
-## 4. 本日行った問題解決
-
-  - 
-  - 
-  - 
-
+    - 起床後 6.5h
+    - コーヒーナップ後 5.5h
 
 <br>
 
 
-## 5. 未解決の問題
+## <li>成った事</li>
+
+  - 
+
+<br>
+
+
+## <li>成らなかった事</li>
+
 *詰まっていること（実現したいこと/現状/行ったこと/仮説）*
 
   - 
   - 
   - 
 
-
 <br>
 
 
-## 6. 進捗に寄与した新たな情報
+## <li>ソース</li>
+
 *学んだこと（新しい気付き、学び）*
 
   - 
   - 
-  - 
-
 
 <br>
 
-## 7. 感想
+
+## <li>感想</li>
+
 *感想（一日の感想、雑談）*
 
   - 
   - 
   - 
 
-
 <br>
 
 
-## 8. 明日への引き継ぎTODO
+## <li>明日為すべき事</li>
+
 *明日の目標（TODO目標/できるようになりたいこと）*
 
-|TODO|備考|
-|-|-|
+  - 
+  - 
+  - 
 
 <!-- end -->
 
 <br>
 
+</ol>
 
-## 9. 明日への引き継ぎコメント
-
-none
-
-
-<br>
-
-
-<span id="remarks" style="font-size:x-small">
-  Remarks<br>
-  ^1 <br>
-  ^2 <br>
-</span>
-
-
-<br>
 
 EOS
 
