@@ -23,7 +23,7 @@ end
 latest_file = IntFilesLatest.new(relative_ls,"md")
 
 def pic_tomorrows str
-  regexp = /()([^!]+)(<!-- end -->)/
+  regexp = /(\*明日の目標（TODO目標\/できるようになりたいこと）\*\n)([^!]+)(\n<!-- end -->)/
   str =~ regexp
   Regexp.last_match(2)
 end
