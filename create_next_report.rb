@@ -23,7 +23,7 @@ end
 latest_file = IntFilesLatest.new(relative_ls,"md")
 
 def pic_tomorrows str
-  regexp = /(\*明日の目標（TODO目標\/できるようになりたいこと）\*\n)([^!]+)(\n<!-- end -->)/
+  regexp = /(_明日の目標（TODO 目標\/できるようになりたいこと）_\n)([^!]+)(\n<!-- end -->)/
   str =~ regexp
   Regexp.last_match(2)
 end
@@ -62,7 +62,7 @@ tmpl = <<"EOS"
 
 ## <li>為した事</li>
 
-*目標振り返り（TODO進捗/できるようになりたいこと振り返り）*
+*目標振り返り（TODO 進捗/できるようになりたいこと振り返り）*
 
   - 
   - 
@@ -125,7 +125,7 @@ tmpl = <<"EOS"
 
 ## <li>明日為すべき事</li>
 
-*明日の目標（TODO目標/できるようになりたいこと）*
+*明日の目標（TODO 目標/できるようになりたいこと）*
 
   - 
   - 
