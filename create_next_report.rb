@@ -25,8 +25,6 @@ latest_file = IntFilesLatest.new(relative_ls,"md")
 def pic_tomorrows str
   regexp = /(_明日の目標（TODO 目標\/できるようになりたいこと）_\n)([^!]+)(\n<!-- end -->)/
   str =~ regexp
-  p str
-  p Regexp.last_match(2)
 end
 
 f = File.open(latest_file.pash, "r")
